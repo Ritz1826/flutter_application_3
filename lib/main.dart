@@ -15,9 +15,9 @@ Future<void> _bgMsgHandling(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
-  FirebaseMessaging.onBackgroundMessage(_bgMsgHandling);
+  // FirebaseMessaging.onBackgroundMessage(_bgMsgHandling);
 
   runApp(const MyApp());
 }
@@ -32,10 +32,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+    print("hereee");
     WidgetsBinding.instance.addPostFrameCallback((callback) async {
-      NotificationService().checkMessage();
-      NotificationService().getToken();
-      NotificationService().handleBgRedirection();
+      // NotificationService().checkMessage();
+      // NotificationService().getToken();
+      // NotificationService().handleBgRedirection();
     });
     super.initState();
   }
