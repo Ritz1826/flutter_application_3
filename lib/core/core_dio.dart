@@ -23,7 +23,7 @@ class CoreDio {
 
   Future<Response> postApi(String apiUrl, Map<String, dynamic> data) async {
     try {
-      final response = await dio.post(apiUrl, data: data);
+      final response = await dio.post(apiUrl, data: data, );
       return response;
     } catch (e) {
       rethrow;
