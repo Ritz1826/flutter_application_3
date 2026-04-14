@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/bloc/todo_bloc/bloc/todo_bloc.dart';
 import 'package:flutter_application_3/core/app_const.dart';
 import 'package:flutter_application_3/core/notification_service.dart';
 import 'package:flutter_application_3/view/screens/chat.dart';
 import 'package:flutter_application_3/view/screens/home.dart';
+import 'package:flutter_application_3/view/screens/todo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @pragma('vm:entry-point')
 Future<void> _bgMsgHandling(RemoteMessage message) async {
@@ -50,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomeScreen(),
+      home: BlocProvider(create: (context) => TodoBloc(), child: ToDoScreen()),
     );
   }
 }
